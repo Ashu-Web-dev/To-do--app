@@ -35,7 +35,11 @@ const App = () => {
   }
   useEffect(() => {
     const savedata = JSON.parse(localStorage.getItem("mydata"))
-    setData(savedata)
+        if (savedata) {           
+            setData(savedata)
+         } else {
+    setData([])              
+  }
      const savedColer= JSON.parse(localStorage.getItem("change"))
      if(savedColer!==null)
      setColor(savedColer)
